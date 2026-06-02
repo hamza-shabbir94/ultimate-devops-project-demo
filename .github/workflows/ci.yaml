@@ -1,13 +1,18 @@
 # CI for Product Catalog Service
 
+# This workflow is triggered on pull requests to the main branch. It performs the following steps:
+# 1. Builds the Go application for the product catalog service.
 name: product-catalog-ci
 
+# Trigger the workflow on pull request to main branch
 on: 
     pull_request:
         branches:
         - main
 
+# Define the jobs to be run in the workflow
 jobs:
+  # Build the Go application and run unit tests
     build:
         runs-on: ubuntu-latest
 
@@ -94,8 +99,8 @@ jobs:
         
         - name: Commit and push changes
           run: |
-            git config --global user.email "abhishek@gmail.com"
-            git config --global user.name "Abhishek Veeramalla"
+            git config --global user.email "hamza.shabbir.94.4@gmail.com"
+            git config --global user.name "Hamza Shabbir"
             git add kubernetes/productcatalog/deploy.yaml
             git commit -m "[CI]: Update product catalog image tag"
             git push origin HEAD:main -f
